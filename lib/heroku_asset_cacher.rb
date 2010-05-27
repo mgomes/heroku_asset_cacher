@@ -1,6 +1,4 @@
 class HerokuAssetCacher
-  @@regex_pattern = /\/\w+\/all.*/i
-  
   def initialize_asset_packager
     unless File.directory? heroku_file_location
       Dir.mkdir(heroku_file_location)
@@ -25,9 +23,7 @@ class HerokuAssetCacher
   end
   
   def render_js
-		file_name = @@regex_pattern.match(@env['REQUEST_PATH'])[1]
-
-		file = "#{heroku_file_location}/javascripts/all.js"
+		file = "#{heroku_file_location}/all.js"
 			[
 				200,
 				{
@@ -40,8 +36,7 @@ class HerokuAssetCacher
   end
   
   def render_css
-		file_name = @@regex_pattern.match(@env['REQUEST_PATH'])[1]
-		file = "#{heroku_file_location}/stylesheets/all.css"
+		file = "#{heroku_file_location}/all.css"
 			[
 				200,
 				{

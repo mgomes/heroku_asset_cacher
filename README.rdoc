@@ -23,18 +23,15 @@ Or you can specify individual files to cache, as such:
   
 Files that are not included in the all.js or all.css bundle will still be served from their original directories.
 
-== Warnings
-
-The path names that Rails stores the location of its cached assets are stored as constants. This causes some annoying warnings to popup when using the plugin:
-
-  ./lib/actionpack_overrides.rb:4: warning: already initialized constant JAVASCRIPTS_DIR
-  ./lib/actionpack_overrides.rb:5: warning: already initialized constant STYLESHEETS_DIR
-
-Unfortunately there is nothing that can be done about these.
-
 == Testing
 
+To run the test suite:
+
   rake test
+  
+To try out Heroku Asset Cacher in development, you can set the following option in environment.rb:
+
+  ActionController::Base.perform_caching = true
 
 == Previous Art
 
