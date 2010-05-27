@@ -1,0 +1,2 @@
+require 'actionpack_overrides'
+ActionController::Dispatcher.middleware.use HerokuAssetCacher
