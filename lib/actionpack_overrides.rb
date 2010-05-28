@@ -5,7 +5,7 @@ module ActionView
 				def write_asset_file_contents(joined_asset_path, asset_paths)
 					joined_asset_path = File.join($asset_cache_base_path, joined_asset_path.split(File::SEPARATOR).last)
           FileUtils.mkdir_p(File.dirname(joined_asset_path))
-          File.open(joined_asset_path, "w+") { |cache| cache.write(join_asset_file_contents(asset_paths)) }
+          File.atomic_write(joined_asset_path) { |cache| cache.write(join_asset_file_contents(asset_paths)) }
 
           # Set mtime to the latest of the combined files to allow for
           # consistent ETag without a shared filesystem.

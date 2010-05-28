@@ -1,9 +1,5 @@
 class HerokuAssetCacher
   def initialize_asset_packager
-    unless File.directory? heroku_file_location
-      Dir.mkdir(heroku_file_location)
-    end
-
     $asset_cache_base_path = heroku_file_location  
   end
   
