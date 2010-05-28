@@ -23,6 +23,12 @@ Or you can specify individual files to cache, as such:
   
 Files that are not included in the all.js or all.css bundle will still be served from their original directories.
 
+== Clearing the cached assets
+
+You can run the following rake task on Heroku to regenerate your cached assets:
+
+  rake asset_cache:clear
+
 == Testing
 
 To run the test suite:
